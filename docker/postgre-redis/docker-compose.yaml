@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  postgres:
+    image: "postgres:15-alpine"
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=postgres-db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  redisdb:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: ["redis-server", "--bind", "redisdb", "--port", "6379"]
+    volumes: 
+      - redisdb:/data
+
+volumes:
+  db-data:
+    driver: local
+  redisdb:
+    driver: local

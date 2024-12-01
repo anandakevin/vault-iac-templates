@@ -1,0 +1,15 @@
+version: '2'
+services:
+  database:
+    image: localhost/oracle-db:latest
+    volumes:
+      - ./oradata-19:/opt/oracle/oradata # persistent oracle database data.
+    ports:
+      - 1525:1521
+      - 8080:8080
+      - 5501:5500
+      - 2484:2484
+    environment:
+      - ORACLE_PWD=admin
+      - ORACLE_PDB=ORCLPDB
+      - ORACLE_SID=LGLM
