@@ -11,5 +11,5 @@ services:
       - 2484:2484
     environment:
       - ORACLE_PWD=admin
-      - ORACLE_PDB=ORCLPDB
-      - ORACLE_SID=LGLM
+      - ORACLE_PDB=admin
+      - ORACLE_SID=oracle
