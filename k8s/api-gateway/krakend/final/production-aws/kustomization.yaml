@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: api-gateway
 resources:
-  - ../../service/krakend/overlays/staging
+  - ../../service/krakend/overlays/production-aws

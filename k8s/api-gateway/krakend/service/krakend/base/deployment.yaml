@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: krakend
-        image: 992382520594.dkr.ecr.ap-southeast-3.amazonaws.com/api-gateway/krakend:amd64-build
+        image: 992382520594.dkr.ecr.ap-southeast-3.amazonaws.com/api-gateway/krakend:amd64-build-dev
         ports:
           - containerPort: 8080
         imagePullPolicy: Always

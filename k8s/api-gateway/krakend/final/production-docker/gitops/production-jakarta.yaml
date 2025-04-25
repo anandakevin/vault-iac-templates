@@ -60,7 +60,7 @@ spec:
         env:
         - name: KRAKEND_PORT
           value: "8080"
-        image: 992382520594.dkr.ecr.ap-southeast-3.amazonaws.com/api-gateway/krakend:amd64-build
+        image: thechief28/api-gateway/krakend:latest
         imagePullPolicy: Always
         name: krakend
         ports:
@@ -70,7 +70,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/add-base-url: "true"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
@@ -81,9 +81,9 @@ metadata:
   name: krakend-ingress
   namespace: api-gateway
 spec:
-  ingressClassName: prod-ingress-nginx
+  ingressClassName: dev-ingress-nginx
   rules:
-  - host: api.dev.gateway.com
+  - host: api.gateway.com
     http:
       paths:
       - backend:
