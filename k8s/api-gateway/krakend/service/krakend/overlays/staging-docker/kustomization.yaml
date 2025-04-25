@@ -9,3 +9,6 @@ patches:
   target:
     kind: Deployment
     name: krakend-deployment
+images:
+- name: thechief28/api-gateway-krakend
+  newTag: 68486b52fb33a4f290549a065a63236cf56af600
