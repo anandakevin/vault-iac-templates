@@ -11,4 +11,4 @@ patches:
     name: krakend-deployment
 images:
 - name: thechief28/api-gateway-krakend
-  newTag: 31905e4b4e98c36f86a46356638d214c9d2f77a9
+  newTag: 29dfcc8c4e9ea8263240c598e8db375dcf2f5145
