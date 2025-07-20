@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  jenkins:
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    user: root
+    ports:
+      - "8090:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # for Docker-in-Docker
+      - ./jenkins/ansible:/ansible  # mount Ansible playbooks
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+
+  ansible:
+    build:
+      context: ./ansible
+      dockerfile: Dockerfile
+    volumes:
+      - ./ansible:/ansible
+    working_dir: /ansible
+    entrypoint: ["ansible-playbook"]
+
+volumes:
+  jenkins_home:

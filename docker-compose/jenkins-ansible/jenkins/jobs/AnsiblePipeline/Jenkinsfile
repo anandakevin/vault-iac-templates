@@ -1,0 +1,11 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Run Ansible in Docker') {
+      steps {
+        sh 'docker compose run ansible site.yml -i inventory'
+      }
+    }
+  }
+}

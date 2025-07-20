@@ -1,0 +1,33 @@
+# Ignore Jenkins persistent data
+jenkins_home/
+jenkins/init.groovy.d/*.log
+
+# Jenkins runtime-mount dirs
+jenkins/ansible/
+
+# Ignore Docker volumes
+volumes/
+**/logs/
+**/tmp/
+**/__pycache__/
+
+# Ignore Ansible local artifacts
+ansible/*.retry
+ansible/.cache/
+ansible/.molecule/
+ansible/*.log
+
+# Ignore build files
+**/.DS_Store
+**/*.swp
+**/*.bak
+
+# Ignore Python stuff (just in case)
+**/*.pyc
+**/.venv/
+**/env/
+**/.env
+
+# Ignore VSCode and IDE configs
+.vscode/
+.idea/
