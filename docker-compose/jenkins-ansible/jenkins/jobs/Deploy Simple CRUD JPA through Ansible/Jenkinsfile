@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "thechief28/vault-spring-boot-simple-crud-jpa:latest"
         ANSIBLE_DIR = "/home/jenkins/ansible"
+        ANSIBLE_CONFIG = "/home/jenkins/ansible/ansible.cfg"
     }
 
     stages {

@@ -25,6 +25,7 @@ services:
     volumes:
       - ./ansible/scripts/init.sh:/init.sh
       - ./target/data:/tmp
+      - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: ["/bin/bash", "/init.sh"]
 
 volumes:
