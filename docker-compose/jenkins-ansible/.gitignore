@@ -1,9 +1,12 @@
 # Ignore Jenkins persistent data
 jenkins_home/
 jenkins/init.groovy.d/*.log
-
-# Jenkins runtime-mount dirs
-jenkins/ansible/
+jenkins/jobs/**/builds/
+jenkins/jobs/**/workspace/
+jenkins/jobs/**/config.xml
+jenkins/jobs/**/github-polling.log
+jenkins/jobs/**/nextBuildNumber
+jenkins/jobs/**/lastBuildNumber
 
 # Ignore Docker volumes
 volumes/
@@ -31,3 +34,5 @@ ansible/*.log
 # Ignore VSCode and IDE configs
 .vscode/
 .idea/
+
+target/

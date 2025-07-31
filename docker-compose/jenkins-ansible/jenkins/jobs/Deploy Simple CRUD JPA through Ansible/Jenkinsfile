@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = "thechief28/vault-spring-boot-simple-crud-jpa:latest"
+        ANSIBLE_DIR = "/home/jenkins/ansible"
+    }
+
+    stages {
+        stage('Run Ansible Playbook') {
+            steps {
+                echo 'Redeploying application on target server via Ansible...'
+                dir('ansible') {
+                    sh '''
+                        ansible-playbook -i ${ANSIBLE_DIR}/inventories/inventory.ini ${ANSIBLE_DIR}/playbooks/deploy-simple-crud-jpa.yml \
+                        --extra-vars "image=${DOCKER_IMAGE}"
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment successful ✅'
+        }
+        failure {
+            echo 'Deployment failed ❌'
+        }
+    }
+}

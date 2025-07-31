@@ -1,0 +1,23 @@
+---
+- name: Redeploy application on target server
+  hosts: target
+  become: true
+  tasks:
+    - name: Stop and remove old container
+      community.docker.docker_container:
+        name: simple-crud-jpa
+        state: absent
+
+    - name: Pull specified image
+      community.docker.docker_image:
+        name: "{{ image }}"
+        source: pull
+
+    - name: Run new container with updated image
+      community.docker.docker_container:
+        name: simple-crud-jpa
+        image: "{{ image }}"
+        state: started
+        restart_policy: always
+        published_ports:
+          - "8080:8080"

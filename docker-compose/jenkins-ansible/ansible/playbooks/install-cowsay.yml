@@ -1,0 +1,31 @@
+- name: Install and verify cowsay
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install cowsay
+      apt:
+        name: cowsay
+        update_cache: yes
+        state: present
+
+    - name: Add /usr/games to system-wide PATH
+      lineinfile:
+        path: /etc/profile
+        line: 'export PATH=$PATH:/usr/games'
+        create: yes
+        state: present
+
+    - name: Refresh environment (load new PATH)
+      shell: source /etc/profile
+      args:
+        executable: /bin/bash
+
+    - name: Verify cowsay installation
+      shell: /usr/games/cowsay "Ansible installed this!"
+      register: cowsay_result
+
+    - name: Show cowsay output
+      debug:
+        msg: "{{ cowsay_result.stdout }}"
+

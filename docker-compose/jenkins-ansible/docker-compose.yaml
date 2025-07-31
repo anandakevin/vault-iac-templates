@@ -1,29 +1,31 @@
-version: "3.8"
-
 services:
-  jenkins:
+  jenkins-ansible:
     build:
-      context: ./jenkins
-      dockerfile: Dockerfile
+      dockerfile: ./jenkins/Dockerfile
     user: root
     ports:
       - "8090:8080"
       - "50000:50000"
+    privileged: true
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock  # for Docker-in-Docker
-      - ./jenkins/ansible:/ansible  # mount Ansible playbooks
+      - ./jenkins/jobs:/var/jenkins_home/jobs
+      - ./ansible:/home/jenkins/ansible
+      - ./docker-compose.yaml:/workspace/docker-compose.yaml
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
 
-  ansible:
-    build:
-      context: ./ansible
-      dockerfile: Dockerfile
+  target:
+    image: ubuntu:22.04
+    command: ["sleep", "infinity"]
+    privileged: true
+    expose:
+      - "22"
     volumes:
-      - ./ansible:/ansible
-    working_dir: /ansible
-    entrypoint: ["ansible-playbook"]
+      - ./ansible/scripts/init.sh:/init.sh
+      - ./target/data:/tmp
+    entrypoint: ["/bin/bash", "/init.sh"]
 
 volumes:
   jenkins_home:
