@@ -1,0 +1,8 @@
+workflow-aggregator
+pipeline-stage-view
+blueocean
+git
+ansible
+ssh
+adoptopenjdk
+git-client
