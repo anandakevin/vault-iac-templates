@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Run Ansible in Docker') {
       steps {
-        sh 'ansible-playbook ${ANSIBLE_DIR}/site.yml -i ${ANSIBLE_DIR}/inventories/inventory.ini'
+        sh 'ansible-playbook ${ANSIBLE_DIR}/playbooks/install-cowsay.yml -i ${ANSIBLE_DIR}/inventories/inventory.ini'
       }
     }
   }
