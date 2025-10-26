@@ -1,6 +1,7 @@
 version: '2'
 services:
   database:
+    # using locally build image
     image: localhost/oracle-db:latest
     volumes:
       - ./oradata-19:/opt/oracle/oradata # persistent oracle database data.
