@@ -8,3 +8,5 @@ services:
       DYNAMIC_CONFIG_ENABLED: true
     volumes:
       - ./config.yaml:/etc/kafkaui/dynamic_config.yaml
+    extra_hosts:
+      - "telflow-kafka-0.telflow-kafka-brokers.26-1.svc:host-gateway"

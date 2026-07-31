@@ -1,0 +1,60 @@
+Top-most EditorConfig file
+root = true
+
+# ===============================
+# YAML files
+# ===============================
+[*.{yml,yaml}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Top-most EditorConfig file
+root = true
+
+# ===============================
+# Java files
+# ===============================
+[*.java]
+charset = utf-8
+indent_style = space
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# ===============================
+# XML files
+# ===============================
+[*.xml]
+charset = utf-8
+indent_style = space
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# ===============================
+# json files
+# ===============================
+[*.json]
+charset = utf-8
+indent_style = space
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# ===============================
+# Gherkin/Karate feature files
+# ===============================
+[*.feature]
+charset = utf-8
+indent_style = space
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true

@@ -1,0 +1,57 @@
+*       text=auto
+
+*.bat         eol=crlf
+*.cd          text
+*.cfg         text
+*.classpath   text
+*.conf        text
+*.config      text
+# utf-8, with BOM, sigh
+*.cs          text
+*.csproj      eol=crlf
+*.csv         text
+*.dll         binary
+*.feature     text whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tab-width=2
+*.iml         text
+*.jar         binary
+*.java        text whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tab-width=4 diff=java
+*.js          text
+*.json        text
+*.MF          text
+# XML
+*.mfd         text
+# XML
+*.mfp         text
+*.nupkg       binary
+# XML
+*.nuspec      text
+*.p12         binary
+*.php         text  diff=php
+*.pl          text
+*.png         binary
+*.prefs       text
+*.project     text
+*.properties  text
+# utf-16, sigh
+*.ps1         text
+*.py          text
+*.pyc         binary
+*.sh          eol=lf
+*.sln         eol=crlf
+*.spec        text
+# XML
+*.transform   text
+*.txt         text
+*.wsdl        text
+*.xml         text whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tab-width=2
+*.xsd         text
+*.xsl         text
+*.xslt        text
+
+build_key     text
+datastore     text
+TypeConverter text
+
+jssecacerts   binary
+
+*README*      text
