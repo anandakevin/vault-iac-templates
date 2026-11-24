@@ -6,6 +6,8 @@ kafka:
   clusters:
     - name: local  # Unique name identifier for the Kafka cluster
       bootstrap-servers: host.docker.internal:29092  # List of Kafka broker addresses
+    - name: devstack  # Unique name identifier for the Kafka cluster
+      bootstrap-servers: host.docker.internal:9092  # List of Kafka broker addresses
 
       # SSL configuration for secure connection to Kafka brokers
       # ssl:
